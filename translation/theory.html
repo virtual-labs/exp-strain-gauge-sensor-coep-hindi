@@ -1,0 +1,464 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta content="" name="description">
+<meta content="" name="author">
+
+<meta name="experiment-short-name" content="strain-gauge-sensor">
+<meta name="developer-institute" content="coep">
+<meta name="learning-unit" content="CHARACTERIZE THE STRAIN GAUGE SENSOR">
+<meta name="task-name" content="Theory">
+
+<!-- For iPhone -->
+<meta name="msapplication-TileColor" content="#4076e0">
+<!-- Chrome, Firefox OS and Opera -->
+<meta name="theme-color" content="#4076e0">
+<!-- Windows Phone -->
+<meta name="msapplication-navbutton-color" content="#4076e0">
+<title>वर्चुअल लैब्स</title>
+<link rel="shortcut icon" href="./assets/images/favicon.ico">
+<link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" integrity="sha512-Oy18vBnbSJkXTndr2n6lDMO5NN31UljR8e/ICzVPrGpSud4Gkckb8yUpqhKuUNoE+o9gAb4O/rAxxw1ojyUVzg==" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&amp;family=Raleway&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="./assets/css/github-markdown.min.css">
+<link rel="stylesheet" href="./assets/css/vlabs-style.css">
+
+<script src="./assets/js/jquery-3.4.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+<style>
+h1 {
+font-size: 1.8rem;
+}
+h2 {
+font-size: 1.4rem;
+}
+h3 {
+font-size: 1.2rem;
+}
+
+h2, h3 {
+font-weight: 800;
+}
+</style>
+</head>
+<body class="p-0 container-fluid vlabs-page d-flex flex-column justify-content-between">
+
+<header class="vlabs-header sticky-top bg-white">
+<nav class="p-0 navbar navbar-light d-flex align-items-stretch">
+
+<button class="navbar-toggler px-4" type="button" onclick="toggle()">
+<span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="d-flex justify-content-center">
+<a href="https://vlab.co.in" class="navbar-brand">
+<img src="./assets/images/vlabs-color-small-moe.jpg" alt="vlabs logo" class="vlabs-logo">
+</a>
+</div>
+
+<div id="headerNavbar" class="d-none border-top flex-grow-1 d-lg-flex align-items-center">
+<ul class="navbar-nav ml-auto text-center d-flex flex-md-row">
+<li class="nav-item px-2 m-1">
+<a href="https://vlab.co.in">होम</a>
+</li>
+<li class="nav-item px-2 m-1">
+<a href="https://vlab.co.in/participating-institutes">भागीदार</a>
+</li>
+<li class="nav-item px-2 m-1">
+<a href="https://vlab.co.in/contact-us">संपर्क</a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
+<div class="container-fluid flex-fill d-flex flex-column vlabs-page-main">
+<div class="row d-flex justify-content-between">
+<div class="flex-column">
+
+<div class="row py-4 px-4 breadcrumbs">
+<a href="https://www.vlab.co.in/broad-area-electrical-engineering">
+इलेक्ट्रिकल इंजीनियरिंग
+</a>
+<span class="mx-2">
+<i aria-hidden="true" class="fa fa-angle-right"></i>
+</span>
+<a href="https://sl-coep.vlabs.ac.in">
+सेंसर मॉडलिंग & सिमुलेशन लैब
+</a>
+<span class="mx-2">
+<i aria-hidden="true" class="fa fa-angle-right"></i>
+</span>
+<a href="https://sl-coep.vlabs.ac.in/List of experiments.html">
+प्रयोग
+</a>
+</div>
+
+</div>
+<div class="flex-column">
+<div id="plugin-bug-report"></div>
+<div id="plugin-rating"></div>
+</div>
+</div>
+<div class="row flex-grow-1 d-flex flex-nowrap flex-column flex-lg-row">
+<div class="modal fade popupmenu" id="popupMenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel">
+<a href="https://vlab.co.in" class="navbar-brand">
+<img src="./assets/images/vlabs-color-small-moe.jpg" alt="vlabs logo" class="vlabs-logo">
+</a>
+</h5>
+<button type="button" class="btn-close align-self-center" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body nav-menu">
+<div>
+<div class="d-flex nav-menu-body">
+<a href="index.html" class="p-2 ">
+उद्देश्य
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="theory.html" class="p-2  current-item ">
+सिद्धांत
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="pretest.html" class="p-2 ">
+प्रीटेस्ट
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="procedure.html" class="p-2 ">
+कार्यप्रणाली
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="simulation.html" class="p-2 ">
+सिमुलेशन
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="posttest.html" class="p-2 ">
+पोस्टटेस्ट
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="references.html" class="p-2 ">
+सन्दर्भ
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="feedback.html" class="p-2 ">
+प्रतिपुष्टि
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="nav flex-column sidebar nav-menu flex-shrink-0 px-lg-4 align-items-center align-items-lg-start hidden d-none d-lg-flex" id="menu">
+<div>
+<div class="d-flex nav-menu-body">
+<a href="index.html" class="p-2 ">
+उद्देश्य
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="theory.html" class="p-2  current-item ">
+सिद्धांत
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="pretest.html" class="p-2 ">
+प्रीटेस्ट
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="procedure.html" class="p-2 ">
+कार्यप्रणाली
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="simulation.html" class="p-2 ">
+सिमुलेशन
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="posttest.html" class="p-2 ">
+पोस्टटेस्ट
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="references.html" class="p-2 ">
+सन्दर्भ
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+<div>
+<div class="d-flex nav-menu-body">
+<a href="feedback.html" class="p-2 ">
+प्रतिपुष्टि
+</a>
+
+</div>
+<div id="t-" class="collapse">
+<div class="px-3 d-flex flex-column tasks align-items-center align-items-lg-start">
+</div>
+</div>
+</div>
+</div>          <div class="vlabs-page-content px-5 pb-4 flex-grow-1 markdown-body">
+<div class="text-center fix-spacing">
+<h3 id="characterize-the-strain-gauge-sensor">स्ट्रेन गेज सेंसर की विशेषता</h3>
+
+</div>
+<h3 id="prerequisite"><strong>शर्त</strong></h3>
+<h3 id="what-do-we-mean-by-stress"><strong>स्ट्रेस से हमारा क्या मतलब है ?</strong></h3>
+<p>स्ट्रेस एक लागू बाहरी फोर्स के जवाब में एक वस्तु के अंदर उत्पन्न फोर्स है। वस्तु के क्रॉस-सेक्शनल क्षेत्र द्वारा विभाजित इस आंतरिक फोर्स को स्ट्रेस कहा जाता है, जिसे Pa (पास्कल) या N/m2 में व्यक्त किया जाता है। यदि की दिशा बाहरी फोर्स क्रॉस-अनुभागीय क्षेत्र के वर्टिकल है, स्ट्रेस को <strong>वर्टिकल स्ट्रेस</strong> कहा जाता है</p>
+<h3 id="what-do-we-mean-by-strain"><strong>स्ट्रेन से हमारा क्या मतलब है ?</strong></h3>
+<p>जब एक बार खींचा जाता है, तो इसकी लंबाई में ΔL परिवर्तन होता है, जिससे इसकी नई लंबाई = L (मूल लंबाई) + ΔL (लंबाई में परिवर्तन) हो जाती है।
+लंबाई में इस परिवर्तन के अनुपात को मूल लंबाई, L, को स्ट्रेन कहा जाता है।
+स्ट्रेन ε (एप्सिलॉन) में व्यक्त किया गया है: ε = ΔL / L
+बाहरी फोर्स  के समान दिशा में स्ट्रेन को लौगिंट्युडिनल स्ट्रेन  कहा जाता है।
+चूंकि स्ट्रेन एक अनुपात है, यह एक पूर्ण संख्या है जिसमें कोई इकाई नहीं है।
+बाहरी फोर्स के लिए वर्टिकल दिशा में खिंचाव को लैटरल स्ट्रेन कहा जाता है
+प्रत्येक सामग्री में लान्जिटूडनल स्ट्रेन  के लिए एक लैटरल स्ट्रेन काअनुपात होता है। इस अनुपात को पोएंजोज रेशो  कहा जाता है।</p>
+<h3 id="v----dtrans-daxial"><strong>V = - (dε(trans)/ dε(axial))</strong></h3>
+<p>जहां
+V परिणामी <strong>पोएंजोज रेशो है</strong>,
+<strong>ε(trans)</strong> ट्रान्सवर्स स्ट्रेन है (एक्शियल टेन्शन (खिंचाव) के लिए ऋणात्मक, एक्शियल कम्प्रेशन के लिए धनात्मक)
+<strong>ε(axial)</strong> एक्शियल स्ट्रेन है (एक्शियल टेन्शन के लिए धनात्मक, एक्शियल कम्प्रेशन के लिए ऋणात्मक)।
+स्ट्रेस का मूल्य सीधे स्ट्रेन के अनुपात में है।  इस प्रकार हम एक सामग्री में स्ट्रेस पा सकते हैं यदि हम बाहरी फोर्स द्वारा शुरू किए गए स्ट्रेन को पा सकते हैं।</p>
+<h3 id="introduction-to-strain-gauge"><strong>स्ट्रेन गेज का परिचय</strong></h3>
+<p>स्ट्रेन गेज ट्रांसड्यूसर मेकॅनिकल इलौंगेशन एंड कम्प्रेशन को औसत दर्जे के मूल्य में बदल देता है।</p>
+<h3 id="types-of-strain-gauges-based-on-principle-of-working"><strong>काम के सिद्धांत के आधार पर स्ट्रेन गेजेस के प्रकार:</strong></h3>
+<ol>
+<li><p><strong>मेकॅनिकल:</strong> यह दो अलग-अलग प्लास्टिक परतों से बना है।  नीचे की परत पर एक रूल्ड स्केल होती है और ऊपर की परत में लाल तीर या सूचक होता है।  एक परत दरार के एक तरफ और अन्य दूसरी परत से जुड़ी होती है।  जैसे ही दरार खुलती है, परतें बहुत धीरे-धीरे एक दूसरे के आगे खिसकती हैं और पॉइंटर स्केल पर इधर उधर खिसकता है।दरार चौड़ी होने पर लाल क्रॉसहेयर स्केल पर चलते हैं।  कुछ मेकॅनिकल स्ट्रेन गेज इससे भी अधिक कच्चे हैं।  प्लास्टिक या कांच का टुकड़ा दरार में फंसाया होता है और इसकी स्वरूप का अवलोकन किया जाता है।</p>
+</li>
+<li><p><strong>इलेक्ट्रिकल:</strong> सबसे आम इलेक्ट्रिकल स्ट्रेन गेज पतले, आयताकार आकार के पन्नी के स्ट्रिप्स होते हैं, जिन पर भूलभुलैया की तरह इलेक्ट्रिकल वायरिंग के पैटर्न होते हैं, जो कुछ इलेक्ट्रिकल केबल्स के लिए अग्रणी होते हैं।
+जब सामग्री स्ट्रेनपूर्ण होती है, तो पन्नी पट्टी आकार में थोड़ी झुक जाती है और मेझ जैसी वायर्स को या तो अलग कर दिया जाता है (इसलिए उनके तारों को थोड़ा पतला कर दिया जाता है ) या एक साथ कर दिया जाता है (ताकि तार एक साथ धकेले जाएँ और थोड़े मोटे हो जाएँ)।  धातु के तार की चौड़ाई बदलने से उसका इलेक्ट्रिकल रेज़िस्टन्स बदल जाता है।रेज़िस्टन्स में यह परिवर्तन लागू स्ट्रेस के अनुपात में है।  यदि इसमें शामिल फोर्स छोटे हैं, तो डिफॉर्मेशन लोचदार होता है और स्ट्रेन गेज अंततः अपने मूल आकार में लौट आता है।</p>
+</li>
+<li><p><strong>पाइज़ोइलेक्ट्रिक:</strong> कुछ सामग्री जैसे क्वार्ट्ज क्रिस्टल और विभिन्न प्रकार के सिरेमिक, प्रभावी रूप से प्राकृतिक स्ट्रेन गेज हैं।
+जब धक्का दिया और खींचा, तो वे अपने विपरीत चेहरों के बीच छोटे इलेक्ट्रिकल वोल्टेज उत्पन्न करते हैं।
+इस घटना को पीजोइलेक्ट्रिसिटी कहा जाता है।
+एक पीज़ोइलेक्ट्रिक सेंसर से वोल्टेज को मापने से हम स्ट्रेन की गणना आसानी से  कर सकते हैं।
+पीज़ोइलेक्ट्रिक स्ट्रेन गेज सबसे संवेदनशील और विश्वसनीय उपकरण होते हैं।</p>
+</li>
+</ol>
+<p><strong>इलेक्ट्रिकल स्ट्रेन गेज:</strong> एक स्ट्रेन गेज इलेक्ट्रिकल कन्डक्टन्स की फिजिकल प्रापर्टी का लाभ उठाता है। ना कि यह केवल कन्डक्टर की  इलेक्ट्रिकल कन्डक्टिविटी पर निर्भर करता है, बल्कि कंडक्टर की ज्यामिति पर भी।  जब कोई  इलेक्ट्रिकल कंडक्टर अपनी लच्लेपन की सीमा के भीतर खिंचा जाता है जैसे कि वह टूटता नहीं या स्थायी रूप से विकृत नहीं होता है, तो वह संकरा और लंबा हो जाएगा।  इसी तरह, जब यह संकुचित हो जाएगा, तो यह चौडा और छोटा हो जाएगा।  रेज़िस्टन्स में परिवर्तन गेज तार की लंबाई और पार अनुभागीय क्षेत्र में भिन्नता के कारण होता है।</p>
+<h3 id="gauge-factor"><strong>गेज फॅक्टर:</strong></h3>
+<p>स्ट्रेन गेजेस की विशेषताओं को इसकी संवेदनशीलता (गेज फैक्टर) के संदर्भ में वर्णित किया गया है।  गेज फैक्टर को स्ट्रेन गेज वायर की लंबाई में प्रति यूनिट परिवर्तन के लिए रेज़िस्टन्स में यूनिट परिवर्तन के रूप में नीचे परिभाषित किया गया है।</p>
+<p><strong>G.F. = (ΔR/RG) / ε</strong>
+जहां,
+<strong>ΔR</strong> - स्ट्रेन के कारण रेज़िस्टन्स में परिवर्तन,
+<strong>RG</strong> - अनरिफार्म्ड गेज का रेज़िस्टन्स है, और
+<strong>ε</strong> - स्ट्रेन है।</p>
+<h3 id="effect-of-temperature"><strong>तापमान का प्रभाव:</strong></h3>
+<p>रेज़िस्टिव टाइप स्ट्रेन गेज तापमान भिन्नता के प्रति संवेदनशील होते हैं।  इसलिए तापमान में बदलाव के कारण स्ट्रेन गेज रेज़िस्टन्स में भिन्नता होना आवश्यक हो जाता है।  एक्टिव गेज के विपरीत आर्म में डमी गेज का उपयोग तापमान भिन्नता की भरपाई करता है।</p>
+<h3 id="arrangement"><strong>व्यवस्था:</strong></h3>
+<p>कुछ अनुप्रयोगों में जहां समान और विपरीत उपभेदों का अस्तित्व है, समान गेज को इस तरह से संलग्न करना संभव है कि एक गेज पॉजिटिव स्ट्रेन और अन्य निगेटिव स्ट्रेन का अनुभव करता है।  ब्रिज का उपयोग किए जाने वाले गेजेस की संख्या के आधार पर, सर्किट कॉन्फ़िगरेशन हैं:</p>
+<h3 id="1-quarter-bridge-">1. क्वार्टर ब्रिज :</h3>
+<center><img src="images/img1.jpg" title=""></center>
+
+<h3 id="2-half-bridge-">2. हाफ ब्रिज :</h3>
+<center><img src="images/img2.jpg" title=""></center>
+
+<h3 id="3-full-bridge-">3. फुल ब्रिज :</h3>
+<center><img src="images/img3.jpg" title=""></center>
+
+<p>क्वार्टर ब्रिज में, स्ट्रेन गेज एक आर्म में जुड़ा हुआ है जैसा कि उपरोक्त चित्र में दिखाया गया है।  हाफ ब्रिज व्यवस्था में दो एक्टिव गेजेस का उपयोग किया जाता है, जबकि फूल ब्रिज के मामले में सभी गेजेस सक्रिय होते हैं।  इस व्यवस्था में दो टेशन में कार्य करते हैं जबकि अन्य दो कम्प्रेशन हैं। इस प्रकार की व्यवस्था की सहायता से टेंपरेचर कम्प्रेशन भी प्राप्त किया जाता है।  जब संभव हो, फूल-ब्रिज कॉन्फिगरेशन उपयोग करने के लिए सबसे अच्छा है। यह सच है न केवल इसलिए कि यह दूसरों की तुलना में अधिक संवेदनशील है, बल्कि इसलिए कि यह लिनियर है जबकि अन्य नहीं हैं। क्वार्टर-ब्रिज और हाफ-ब्रिज सर्किट एक आउटपुट (असंतुलन) संकेत प्रदान करते हैं जो स्ट्रेन गेज फोर्स लागू करने के लिए  लगभग आनुपातिक है। इन ब्रिज सर्किट की लिनिएरिटी, या प्रपोरशनेलिटी, सबसे अच्छा है जब लागू फोर्स के कारण रेज़िस्टन्स की मात्रा गेज (ओं) के नाममात्र रेज़िस्टन्स की तुलना में बहुत कम है।  एक फूल-ब्रिज के साथ, हालांकि, आउटपुट वोल्टेज सीधे लागू फोर्स के अनुपात में है, जिसमें कोई एप्रोक्सिमेशन नहीं है।</p>
+<h3 id="effect-of-lead-wire"><strong>लीड-वायर का प्रभाव:</strong></h3>
+<p>स्ट्रेन गेज को कभी-कभी मापने वाले उपकरणों से दूरी पर लगाया जाता है।  यह तापमान भिन्नता, लीड डिसेन्सिटाइजेशन और लीड-वायर रेज़िस्टन्स परिवर्तनों के कारण त्रुटियों की संभावना को बढ़ाता है।</p>
+<h3 id="two-wire">दो वायर:</h3>
+<p><strong>दो वायर</strong> इन्स्टालेशन में, जैसा कि आकृति में दिखाया गया है, दो लीड स्ट्रेन-गेज एलिमेंट के साथ सीरीज में हैं, और लेड-वायर रेजिस्टेंस (R1) में कोई भी बदलाव स्ट्रेन गेज (Rg) के रेजिस्टेंस में बदलाव से अप्रभेद्य होगा। दो-वायर  इन्स्टालेशन में, लीड-वायर रेज़िस्टन्स द्वारा पेश की गई त्रुटि रेज़िस्टन्स अनुपात R1/Rg का एक कार्य है। गेज प्रतिरोध (Rg) की तुलना में लीड-वायर रेजिस्टेंस (R1) छोटा होने पर लीड त्रुटि आमतौर पर महत्वपूर्ण नहीं होती है लेकिन अगर लीड-वायर रेजिस्टेंस नाममात्र गेज रेजिस्टेंस के 0.1% से अधिक हो जाता है, तो त्रुटि का यह स्रोत महत्वपूर्ण हो जाता है। इसलिए, औद्योगिक अनुप्रयोगों में, सेंसर पर सीधे ट्रांसमीटर का पता लगाकर लीड-वायर की लंबाई को कम या समाप्त किया जाना चाहिए।</p>
+<center><img src="images/img4.jpg" title=""></center>
+
+<h3 id="three-wire"><strong>तीन वायर:</strong></h3>
+<p>लीड-वायर प्रभावों को सही करने के लिए , एक अतिरिक्त, तीसरे लीड को ब्रिज के शीर्ष आर्म से पेश किया जा सकता है, <strong>जैसा कि उपरोक्त चित्र में दिखाया गया है</strong>. इस कॉन्फिगरेशन में, वायर C एक सेंस लीड के रूप में कार्य करता है जिसमें कोई करंट प्रवाह नहीं होता है, और तार A और B ब्रिज के विरुद्ध पैरों में होते हैं।  यह एक्सटेंशन वायर त्रुटियों के प्रभाव के कम से कम हिस्से को रद्द करने के लिए एक ब्रिज पर वायरिंग स्ट्रेन गेज की न्यूनतम स्वीकार्य विधि है।  सैद्धांतिक रूप से, यदि सेंसर के प्रमुख वायरों में एक ही नाममात्र रेज़िस्टन्स है, एक ही तापमान गुणांक है, और एक ही तापमान पर बनाए रखा जाता है, तो पूरी भरपाई वसूल हो जाती है।  वास्तव में, वायरों को लगभग 10% की सहिष्णुता के लिए निर्मित किया जाता है, और तीन-वायर इन्स्टालेशन दो-वायर त्रुटियों को पूरी तरह से समाप्त नहीं करती है, लेकिन यह उन्हें परिमाण के क्रम से कम करती है।
+यदि आगे सुधार वांछित है, तो चार-वायर और ऑफसेट-काम्पन्सैटेड इन्स्टलैशन्ज़ पर विचार किया जाना चाहिए।</p>
+<h3 id="types-of-strain-gauge-based-on-construction"><strong>निर्माण के आधार पर स्ट्रेन गेज के प्रकार:</strong></h3>
+<p><strong>ऑप्टिकल सेंसर</strong> संवेदनशील और सटीक हैं, लेकिन नाजुक हैं और औद्योगिक अनुप्रयोगों में बहुत लोकप्रिय नहीं हैं।  वे स्ट्रेन को मापने के लिए ऑप्टिकल फ्लैट्स द्वारा निर्मित इंटरफिरन्सेस फ्रिंज का उपयोग करते हैं।  ऑप्टिकल सेंसर प्रयोगशाला स्थितियों के तहत सबसे अच्छा काम करते हैं।
+<strong>फोटोइलेक्ट्रिक गेज</strong> एक प्रकाश बीम, दो फाइन ग्रेटिंग्स का उपयोग करता है, और एक इलेक्ट्रिकल प्रवाह उत्पन्न करने के लिए एक फोटोसेल डिटेक्टर जो स्ट्रेन के लिए आनुपातिक है।  इन उपकरणों की गेज लंबाई 1/16 इंच जितनी कम हो सकती है, लेकिन वे महंगे और नाजुक हैं।
+<strong>सेमिकंडक्टर स्ट्रेन गेज:</strong> छोटे स्ट्रेन के माप के लिए, सेमीकंडक्टर स्ट्रेन गेज, जिसे पाइज़ोरेस्टिस्टर कहा जाता है, को अक्सर फॉइल गेज पर पसंद किया जाता है।  सेमीकंडक्टर स्ट्रेन गेज सिलिकॉन या जर्मेनियम के पाइज़ोरेज़िस्टिव प्रभावों पर निर्भर करते हैं और स्ट्रेन के विरूद्ध स्ट्रेन के साथ रेज़िस्टन्स में परिवर्तन को मापते हैं।  सेमीकंडक्टर बॉन्डेड स्ट्रेन गेज एक वफ़र है जिसमें रेज़िस्टन्स तत्व सिलिकॉन के सब्सट्रेट में फैला हुआ है। वेफर एलेमेंट आमतौर पर एक बैकिंग के साथ प्रदान नहीं किया जाता है, और इसे स्ट्रेन्ड सरफेस पर बांधने के लिए बहुत देखभाल की आवश्यकता होती है क्योंकि इसे संलग्न करने के लिए एपॉक्सी की केवल एक पतली परत का उपयोग किया जाता है। आकार बहुत छोटा है और मेटेलिक फॉइल सेंसर की तुलना में लागत बहुत कम है।  फ़ॉइल गेज को जोड़ने के लिए उपयोग किए जाने वाले समान एपॉक्सीज़ का उपयोग सेमीकंडक्टर गेज को जोड़ने के लिए किया जाता है।  फायदे उच्च इकाई रेज़िस्टन्स और संवेदनशीलता हैं जबकि, तापमान भिन्नता के प्रति अधिक संवेदनशीलता और बहाव की प्रवृत्ति मेटेलिक फॉइल सेंसर की तुलना में नुकसान हैं।  सेमीकंडक्टर स्ट्रेन गेज का एक और नुकसान यह है कि रेज़िस्टन्स-टू-स्ट्रेन रिलेशनशिप नॉनलाइनियर है।  सॉफ्टवेयर काम्पन्सेशन से इससे बचा जा सकता है।</p>
+<center><img src="images/img5.jpg" title=""></center>
+
+<p><strong>थिन फिल्म स्ट्रेन गेज:</strong> 	ये गेजेस ऐड्हीसिव बॉंडिंग की आवश्यकता को समाप्त करते हैं।  गेज पहले स्ट्रेनग्रस्त धातु की सतह पर एक इलेक्ट्रिकल इन्सुलेशन (आमतौर पर एक सिरेमिक) जमा करके और फिर इस इन्सुलेशन परत पर स्ट्रेन गेज जमा करके उत्पन्न होता है।  सामग्री को आणविक रूप से बॉन्ड करने के लिए वैक्यूम डिपोज़िशन या स्पटरिंग तकनीक का उपयोग किया जाता है।  क्योंकि पतली फिल्म गेज आणविक रूप से नमूने के लिए बॉन्डेड है, इन्स्टलैशन्ज़ बहुत अधिक स्थिर है और रेज़िस्टन्स मूल्य कम बहाव का अनुभव करते हैं।  एक और लाभ यह है कि स्ट्रेस फोर्स डिटेक्टर सिरेमिक इन्सुलेशन की जमा परत के साथ एक मेटेलिक डायाफ्रागम या बीम हो सकता है।</p>
+<p><strong>डिफ्युज्ड सेमिकंडक्टर स्ट्रेन गेज:</strong> यह स्ट्रेन गेज तकनीक में एक और सुधार है क्योंकि वे बॉन्डिंग एजेंटों की आवश्यकता को समाप्त करते हैं।  बॉन्डिंग एजेंटों को खत्म करके, क्रिप और हिस्टीरिसिस के कारण त्रुटियों को भी समाप्त कर दिया जाता है।  डिफ्यूज्ड सेमीकंडक्टर स्ट्रेन गेज फोटोलिथोग्राफी मास्किंग टेक्निक्स और बोरोन के सॉलिड स्टेट डिफ्युज़न का उपयोग रेज़िस्टन्स तत्वों को आणविक रूप से बांड करने के लिए करता है।  इलेक्ट्रिकल लीड सीधे पैटर्न से जुड़े होते हैं।</p>
+<p>डिफ्युज़्ड गेज मध्यम-तापमान अनुप्रयोगों तक सीमित है और इसके लिए तापमान काम्पेन्सेशन की आवश्यकता होती है।</p>
+<p>डिफ्यूज्ड सेमीकंडक्टर अक्सर प्रेशर ट्रांसड्यूसर्स में सेंसिंग एलेमेंट्स के रूप में उपयोग किए जाते हैं।  वे छोटे, सस्ते, सटीक और दोहराने योग्य हैं, एक व्यापक दबाव रेंज प्रदान करते हैं, और एक तीव्र आउटपुट सिग्नल उत्पन्न करते हैं।  उनकी सीमाओं में परिवेश तापमान विविधताओं के प्रति संवेदनशीलता शामिल है, जिसे इन्टेलिजन्ट ट्रांसमीटर डिजाइनों के लिए मुआवजा दिया जा सकता है।</p>
+<h3 id="types-of-strain-gauge-based-on-mounting"><strong>समन्वायोजन के आधार पर स्ट्रेन गेज के प्रकार:</strong></h3>
+<h4 id="bonded-strain-gauge"><strong>बॉन्डेड स्ट्रेन गेज:</strong></h4>
+<p>एक बॉन्डेड स्ट्रेन-गेज एलिमेंट, धातु के तार से बनी हुई, एचेड फॉइल, वैक्यूम-डिपॉझिटेड फिल्म, या सेमिकंडक्टर बार को स्ट्रेन्ड सरफेस पर जोड दिया जाता है।</p>
+<center><img src="images/img6.jpg" title=""></center>
+
+<h3 id="unbonded-strain-gauge"><strong>अनबॉन्डेड स्ट्रेन गेज:</strong></h3>
+<p>हवा जैसे इन्सुलेटिंग मिडियम में दो बिंदुओं के बीच फैला हुआ अनबॉन्डेड स्ट्रेन गेज एक तार होता है।  तार का एक सिरा बंधा होता है और दूसरा एक चलनशील पदार्थ से जुड़ा हुआ होता है।</p>
+<center><img src="images/img7.jpg" title=""></center>
+
+<h3 id="strain-gauge-selection-criteria"><strong>स्ट्रेन गेज चयन मानदंड:</strong></h3>
+<ul>
+<li>गेज लंबाई</li>
+<li>गेज पैटर्न में गेज की संख्या</li>
+<li>गेज पैटर्न में गेज की व्यवस्था</li>
+<li>ग्रिड रेज़िस्टन्स</li>
+<li>द्रव्यमान</li>
+<li>स्थिरता</li>
+<li>तापमान संवेदनशीलता</li>
+<li>वाहक सामग्री</li>
+<li>गेज चौड़ाई</li>
+<li>उपलब्धता</li>
+<li>कम लागत</li>
+<li>परिवेश की स्थितियों का असर</li>
+</ul>
+
+</div>
+</div>
+</div>
+<footer class="text-light pt-2 vlabs-footer d-flex flex-column">
+<div class="row px-5 mx-0">
+<div class="col d-flex flex-column">
+<span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">कम्युनिटी लिंक्स</span>
+<a href="https://www.sakshat.ac.in/" class="text-light">साक्षात पोर्टल</a>
+<a href="http://outreach.vlabs.ac.in/" class="text-light">आउटरीच पोर्टल</a>
+<a href="https://vlab.co.in/faq" class="text-light">FAQ: वर्चुअल लैब्स</a>
+</div>
+<div class="col d-flex flex-column">
+<span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">हमसे संपर्क करें</span>
+<span> फोन: सामान्य जानकारी: 011-26582050 </span>
+<span> ईमेल: support@vlabs.ac.in </span>
+</div>
+<div class="col d-flex flex-column">
+<span class="font-weight-bold vlabs-footer-sect-name pb-2 mb-3">हमारा अनुसरण करें</span>
+<div class="social-links">
+<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #55acee;" href="https://twitter.com/TheVirtualLabs">
+<i class="fa fa-twitter"></i>
+</a>
+<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #3b5998;" href="https://www.facebook.com/Virtual-Labs-IIT-Delhi-301510159983871/">
+<i class="fa fa-facebook"></i>
+</a>
+<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #e52d27;" href="https://www.youtube.com/watch?v=asxRaOgk6a0">
+<i class="fa fa-youtube"></i>
+</a>
+<a class="p-2 mt-1 mr-2 d-inline-flex justify-content-center align-items-center" style="background: #2867B2;" href="https://in.linkedin.com/in/virtual-labs-008ba9136">
+<i class="fa fa-linkedin"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="m-0 py-2 text-center" style="font-family: &quot;Open Sans&quot;, sans-serif; background: #212121;">
+<a class="text-primary font-weight-bold" href="https://www.gnu.org/licenses/agpl-3.0.en.html"> AGPL 3.0 </a>
+&nbsp;&amp;&nbsp;
+<a class="text-primary font-weight-bold" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"> क्रिएटिव कॉमन्स (CC BY-NC-SA 4.0) </a>
+</div>
+</footer>
+
+<script src="./assets/js/toggleSidebar.js"></script>
+
+
+
+</body></html>
